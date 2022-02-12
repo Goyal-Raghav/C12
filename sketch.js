@@ -1,6 +1,6 @@
 var trex, trex_running, trex_collided;
 var ground, invisibleGround, groundImage;
-
+var cloudsImage;
 
 
 
@@ -12,6 +12,7 @@ function preload(){
   trex_collided = loadImage("trex_collided.png");
   
   groundImage = loadImage("ground2.png");
+  cloudsImage = loadImage("cloud.png");
   
  
   
@@ -73,6 +74,13 @@ function draw() {
 //function to spawn the clouds
 function spawnClouds(){
  // write your code here 
+ if(frameCount% 60==0){
+  var clouds= createSprite(580, 60, 40, 10);
+  clouds.velocityX= -2;
+  clouds.y= Math.round(random (60, 120));
+  clouds.addImage("cloud", cloudsImage);
+  clouds.scale= 0.5;
+ }
  
 }
 
